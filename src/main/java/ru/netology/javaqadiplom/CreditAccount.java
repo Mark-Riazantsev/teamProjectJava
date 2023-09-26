@@ -67,7 +67,7 @@ public class CreditAccount extends Account {
             return false;
         }
         balance = amount;
-        return false;
+        return true;
     }
 
     /**
