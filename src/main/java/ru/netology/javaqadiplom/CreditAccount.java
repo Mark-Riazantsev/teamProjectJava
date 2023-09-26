@@ -56,8 +56,8 @@ public class CreditAccount extends Account {
      * на сумму покупки. Если же операция может привести к некорректному
      * состоянию счёта, то операция должна
      * завершиться вернув false и ничего не поменяв на счёте.
+     *
      * @param amount - сумма пополнения
-     * @return true если операция прошла успешно, false иначе.
      * @param amount
      * @return
      */
@@ -67,7 +67,7 @@ public class CreditAccount extends Account {
             return false;
         }
         balance = amount;
-        return true;
+        return false;
     }
 
     /**
