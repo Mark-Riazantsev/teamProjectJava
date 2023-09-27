@@ -85,7 +85,8 @@ public class SavingAccountTest {
                 5_000,
                 0,
                 10_000,
-                5);
+                5
+        );
 
         account.pay(3_000);
 
@@ -102,7 +103,8 @@ public class SavingAccountTest {
                 5_000,
                 0,
                 10_000,
-                5);
+                5
+        );
 
         account.pay(5_000);
 
@@ -119,7 +121,8 @@ public class SavingAccountTest {
                 5_000,
                 0,
                 10_000,
-                5);
+                5
+        );
 
         account.pay(0);
 
@@ -136,7 +139,8 @@ public class SavingAccountTest {
                 5_000,
                 0,
                 10_000,
-                5);
+                5
+        );
 
         account.pay(-5_000);
 
@@ -150,7 +154,8 @@ public class SavingAccountTest {
             2_000,
             1_000,
             10_000,
-            5);
+            5
+    );
 
     // Вывод начального баланса
     @Test
@@ -187,7 +192,8 @@ public class SavingAccountTest {
                             2_000,
                             15_000,
                             10_000,
-                            5);
+                            5
+                    );
                 }
         );
     }
@@ -200,7 +206,8 @@ public class SavingAccountTest {
                             500,
                             1_000,
                             10_000,
-                            5);
+                            5
+                    );
                 }
         );
     }
@@ -213,7 +220,8 @@ public class SavingAccountTest {
                             15_000,
                             1_000,
                             10_000,
-                            5);
+                            5
+                    );
                 }
         );
     }
@@ -226,7 +234,8 @@ public class SavingAccountTest {
                             2_000,
                             1_000,
                             10_000,
-                            -5);
+                            -5
+                    );
                 }
         );
     }
@@ -238,7 +247,8 @@ public class SavingAccountTest {
                 2_000,
                 1_000,
                 10_000,
-                5);
+                5
+        );
 
         int expected = 100;
         int actual = account.yearChange();
