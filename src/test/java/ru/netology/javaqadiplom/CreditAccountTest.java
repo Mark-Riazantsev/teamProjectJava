@@ -155,6 +155,19 @@ public class CreditAccountTest {
         Assertions.assertEquals(true, result);
         Assertions.assertEquals(-1_000, creditAccount.getBalance());
     }
+    @Test
+    public void shouldNegativePay() {
+        CreditAccount creditAccount = new CreditAccount(
+                5_000,
+                5_000,
+                15
+        );
+
+        boolean result = creditAccount.pay(-1_000);
+
+        Assertions.assertEquals(false, result);
+        Assertions.assertEquals(5_000, creditAccount.getBalance());
+    }
 
     @Test
     public void shouldPayWithExcessCreditLimit() {
@@ -169,8 +182,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(false, result);
         Assertions.assertEquals(5000, creditAccount.getBalance());
     }
-
-
     @Test
     public void shouldAddToPositiveBalance() {
         CreditAccount creditAccount = new CreditAccount(
@@ -184,7 +195,19 @@ public class CreditAccountTest {
         Assertions.assertTrue(result);
         Assertions.assertEquals(8_000, creditAccount.getBalance());
     }
+    @Test
+    public void shouldNegativeAdd() {
+        CreditAccount creditAccount = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
 
+        boolean result = creditAccount.add(-3_000);
+
+        Assertions.assertEquals(false, result);
+        Assertions.assertEquals(0, creditAccount.getBalance());
+    }
     @Test
     public void shouldAddToZeroBalance() {
         CreditAccount creditAccount = new CreditAccount(
@@ -214,14 +237,15 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculatedInterestWithNegativeBalance() {
         CreditAccount creditAccount = new CreditAccount(
-                -1_000,
+                1000,
                 5_000,
                 15
         );
 
-        int result = creditAccount.yearChange();
+        creditAccount.pay(2_000);
+        int expected = -150;
 
-        Assertions.assertEquals(150, result);
+        Assertions.assertEquals(150, creditAccount.yearChange());
     }
     @Test
     public void shouldCalculatedInterestWithZeroBalance() {
@@ -234,32 +258,5 @@ public class CreditAccountTest {
         int result = creditAccount.yearChange();
 
         Assertions.assertEquals(0, result);
-    }
-    @Test
-    public void shouldNegativePay() {
-        CreditAccount creditAccount = new CreditAccount(
-                5_000,
-                5_000,
-                15
-        );
-
-        boolean result = creditAccount.pay(-1_000);
-
-        Assertions.assertEquals(false, result);
-        Assertions.assertEquals(5_000, creditAccount.getBalance());
-    }
-
-    @Test
-    public void shouldNegativeAdd() {
-        CreditAccount creditAccount = new CreditAccount(
-                0,
-                5_000,
-                15
-        );
-
-        boolean result = creditAccount.add(-3_000);
-
-        Assertions.assertEquals(false, result);
-        Assertions.assertEquals(0, creditAccount.getBalance());
     }
 }
