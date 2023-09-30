@@ -237,15 +237,14 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculatedInterestWithNegativeBalance() {
         CreditAccount creditAccount = new CreditAccount(
-                1000,
+                1_000,
                 5_000,
                 15
         );
 
         creditAccount.pay(2_000);
-        int expected = -150;
 
-        Assertions.assertEquals(150, creditAccount.yearChange());
+        Assertions.assertEquals(-150, creditAccount.yearChange());
     }
     @Test
     public void shouldCalculatedInterestWithZeroBalance() {
