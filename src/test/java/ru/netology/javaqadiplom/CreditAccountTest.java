@@ -243,7 +243,7 @@ public class CreditAccountTest {
         );
 
         creditAccount.pay(2_000);
-        int expected = -150;
+
 
         Assertions.assertEquals(150, creditAccount.yearChange());
     }
