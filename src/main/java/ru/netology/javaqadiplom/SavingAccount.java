@@ -33,11 +33,27 @@ public class SavingAccount extends Account {
                             + minBalance + "и максимальное: " + maxBalance
             );
         }
-        this.balance = initialBalance;
-        this.minBalance = minBalance;
-        this.maxBalance = maxBalance;
-        this.rate = rate;
-    }
+        if (minBalance > maxBalance) {
+            throw new IllegalArgumentException(
+                    "Минимальный баланс " + "не может быть больше максимального" +
+                            ", а у вас допустимое минимальное значение: "
+                            + minBalance + "и максимальное: " + maxBalance
+            );
+        }
+
+        if (initialBalance < minBalance) {
+            throw new IllegalArgumentException(
+                    "Начальный баланс не может быть больше начального" +
+                            ", а у вас допустимое минимальное значение: "
+                            + minBalance + "и начальное: " + initialBalance
+            );
+        }
+
+        this.balance =initialBalance;
+        this.minBalance =minBalance;
+        this.maxBalance =maxBalance;
+        this.rate =rate;
+}
 
     /**
      * Операция оплаты с карты на указанную сумму.
